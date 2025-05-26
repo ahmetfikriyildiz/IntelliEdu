@@ -10,5 +10,7 @@ namespace IntelliEdu.Entity.Entities
     {
         public int BlogCategoryId { get; set; }
         public string Name { get; set; } = string.Empty;
+
+        public List<Blog> Blogs { get; set; }
     }
 }

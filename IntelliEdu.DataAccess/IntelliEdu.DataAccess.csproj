@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IntelliEdu.Entity\IntelliEdu.Entity.csproj" />
+  </ItemGroup>
+
 </Project>

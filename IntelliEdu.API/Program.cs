@@ -1,4 +1,13 @@
+using IntelliEdu.DataAccess.Context;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<IntelliEduContext>(options=>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnectionString"));
+});
 
 // Add services to the container.
 
