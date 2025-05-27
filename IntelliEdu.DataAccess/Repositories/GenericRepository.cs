@@ -1,4 +1,6 @@
 ﻿using IntelliEdu.DataAccess.Abstract;
+using IntelliEdu.DataAccess.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace IntelliEdu.DataAccess.Repositories
 {
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class GenericRepository<T>(IntelliEduContext _context) : IRepository<T> where T : class
     {
-        private readonly IRepository<T> _repository;
+        public DbSet<T> Table { get => _context.Set<T>(); }
         public int Count()
         {
             throw new NotImplementedException();
