@@ -15,47 +15,51 @@ namespace IntelliEdu.DataAccess.Repositories
         public DbSet<T> Table { get => _context.Set<T>(); }
         public int Count()
         {
-            throw new NotImplementedException();
+            return Table.Count();
         }
 
         public void Create(T entity)
         {
-            throw new NotImplementedException();
+            Table.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var entity = Table.Find(id);
+            Table.Remove(entity);
+            _context.SaveChanges();
         }
 
         public int FilteredCount(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return Table.Where(predicate).Count(); 
         }
 
         public T GetByFilter(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return Table.Where(predicate).FirstOrDefault();
         }
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            return Table.Find(id);
         }
 
         public List<T> GetFilteredList(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return Table.Where(predicate).ToList();
         }
 
         public List<T> GetList()
         {
-            throw new NotImplementedException();
+            return Table.ToList();
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            Table.Update(entity);
+            _context.SaveChanges();
         }
     }
 }

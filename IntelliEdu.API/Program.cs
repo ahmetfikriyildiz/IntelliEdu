@@ -1,9 +1,16 @@
+using IntelliEdu.Business.Abstract;
+using IntelliEdu.Business.Concrete;
+using IntelliEdu.DataAccess.Abstract;
 using IntelliEdu.DataAccess.Context;
+using IntelliEdu.DataAccess.Repositories;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
 builder.Services.AddDbContext<IntelliEduContext>(options=>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnectionString"));
