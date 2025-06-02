@@ -36,5 +36,12 @@ namespace IntelliEdu.API.Controllers
             _aboutService.TCreate(newValue);
             return Ok();
         }
+        [HttpPut]
+        public IActionResult Update(UpdateAboutDto updateAboutDto) 
+        {
+            var value = _mapper.Map<About>(updateAboutDto);
+            _aboutService.TUpdate(value);
+            return Ok();
+        }
     }
 }
