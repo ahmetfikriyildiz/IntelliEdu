@@ -10,4 +10,8 @@
     <ProjectReference Include="..\IntelliEdu.Entity\IntelliEdu.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\BlogDtos\" />
+  </ItemGroup>
+
 </Project>
