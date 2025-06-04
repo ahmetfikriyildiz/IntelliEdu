@@ -171,7 +171,7 @@ namespace IntelliEdu.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseId"));
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("CourseCategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("CourseName")
@@ -190,7 +190,7 @@ namespace IntelliEdu.DataAccess.Migrations
 
                     b.HasKey("CourseId");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("CourseCategoryId");
 
                     b.ToTable("Courses");
                 });
@@ -342,13 +342,13 @@ namespace IntelliEdu.DataAccess.Migrations
 
             modelBuilder.Entity("IntelliEdu.Entity.Entities.Course", b =>
                 {
-                    b.HasOne("IntelliEdu.Entity.Entities.CourseCategory", "Category")
+                    b.HasOne("IntelliEdu.Entity.Entities.CourseCategory", "CourseCategory")
                         .WithMany("Courses")
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("CourseCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.Navigation("CourseCategory");
                 });
 
             modelBuilder.Entity("IntelliEdu.Entity.Entities.BlogCategory", b =>

@@ -24,8 +24,8 @@ namespace IntelliEdu.DataAccess.Context
         public DbSet<CourseCategory> CourseCategories { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
-        public DbSet<Subscribe> Subscriptions { get; set; }
-        public DbSet<Testomonial> Testomonials { get; set; }
+        public DbSet<Subscriber> Subscriptions { get; set; }
+        public DbSet<Testimonial> Testomonials { get; set; }
 
     }
 }
